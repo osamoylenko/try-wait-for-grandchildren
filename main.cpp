@@ -10,7 +10,7 @@ int main() {
     std::cout << "PARENT: I'm parent process with pid " << getpid() << std::endl;
 
     std::cout << "PARENT: turning on subreaper option" << std::endl;
-    prctl(PR_SET_CHILD_SUBREAPER, 1, 0, 0, 0);
+    prctl(PR_SET_CHILD_SUBREAPER, 1);
 
     std::cout << "PARENT: Creating child process ..." << std::endl;
 
