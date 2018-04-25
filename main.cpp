@@ -1,11 +1,7 @@
 #include <iostream>
 #include <unistd.h>
 
-#include <sys/prctl.h>
-
 int main() {
-
-
     const int child_sleep = 5;
     const int grandchild_sleep = 10;
 
