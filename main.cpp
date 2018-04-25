@@ -1,7 +1,10 @@
 #include <iostream>
 #include <unistd.h>
 #include <sys/wait.h>
+
+#ifdef __linux__
 #include <sys/prctl.h>
+#endif
 
 int main() {
     const int child_sleep = 5;
@@ -9,8 +12,10 @@ int main() {
 
     std::cout << "PARENT: I'm parent process with pid " << getpid() << std::endl;
 
+#ifdef __linux__
     std::cout << "PARENT: turning on subreaper option" << std::endl;
     prctl(PR_SET_CHILD_SUBREAPER, 1);
+#endif
 
     std::cout << "PARENT: Creating child process ..." << std::endl;
 
